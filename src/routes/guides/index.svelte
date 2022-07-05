@@ -1,7 +1,7 @@
 <script context="module">
   export async function load(context) {
-    const response = await context.fetch("https://jsonplaceholder.typicode.com/posts");
-    const guides = await response.json();
+    const response = await context.fetch("/guides.json");
+    const { guides } = await response.json();
 
     if (response.ok) {
       return {

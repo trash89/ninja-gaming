@@ -2,9 +2,9 @@
   export async function load(context) {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const { id } = context.params;
-    const response = await context.fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    const guide = await response.json();
-
+    const response = await context.fetch(`/guides/${id}.json`);
+    const { guide } = await response.json();
+    console.log(guide);
     if (response.ok) {
       return {
         props: {
